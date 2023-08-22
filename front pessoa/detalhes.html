@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <title>Detalhes</title>
+    <link rel="shortcut icon" href="imagens/dados.ico" type="image/x-icon">
+</head>
+
+<body>
+    <h2>Detalhe de cáculo da pessoa</h2>
+
+    <table id="table_pessoas">
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Data Nascimento</th>
+            <th>Altura</th>
+            <th>Peso</th>
+            <th>Salário</th>
+            <th>Saldo</th>
+            <th>Idade</th>
+            <th>IMC</th>
+            <th>Classificação</th>
+            <th>INSS</th>
+            <th>Aliquota</th>
+            <th>Salário Líquido</th>
+            <th>Saldo Dólar</th>
+        </tr>
+
+    </table>
+</body>
+
+</HTML>
+
+
+<script>
+        $(document).ready(function() {
+        var token = window.localStorage.getItem('token');
+        preencherDetalhes(token);
+    });
+
+    function preencherDetalhes(token) {
+        $("#table_pessoas").not(':first').remove();
+        var html = '';
+        var params = new URLSearchParams(window.location.search);
+        var id = params.get('id');
+
+        $.ajax({
+            url: "http://localhost:33550/Pessoa/" + id,
+            type: "GET",
+            contentType: "application/json",
+            dataType: "json",
+            headers: { 'Authorization': 'Bearer ' + token },
+            success: function (response) {
+                    html += '<tr class="table-row">' +
+                        '<td>' + response.id + '</td>' +
+                        '<td>' + response.nome + '</td>' +
+                        '<td>' + response.dataNascimento + '</td>' +
+                        '<td>' + response.altura + '</td>' +
+                        '<td>' + response.peso + '</td>' +
+                        '<td>' + response.salario + '</td>' +
+                        '<td>' + response.saldo + '</td>' +
+                        '<td>' + response.idade + '</td>' +
+                        '<td>' + response.imc + '</td>' +
+                        '<td>' + response.classificacao + '</td>' +
+                        '<td>' + response.inss + '</td>' +
+                        '<td>' + response.aliquota + '</td>' +
+                        '<td>' + response.salarioLiquido + '</td>' +
+                        '<td>' + response.saldoDolar + '</td>' +
+                        '</tr>';
+
+                $("#table_pessoas tr").first().after(html);
+            },
+            error: function (request, message, error) {
+                alert("Erro ao obter detalhes")
+            }
+        })
+    }
+
+</script>

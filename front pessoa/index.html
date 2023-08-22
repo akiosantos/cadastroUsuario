@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <title>Dados pessoais</title>
+    <link rel="shortcut icon" href="imagens/dados.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <div class="bg-dark p-3">
+
+        <div class="text-bg-dark">
+
+            <div class="container-fluid">
+
+                <div class="text-bg-warning">
+                    <h1>Informações pessoais</h1>
+                    <button onclick="alterarSenha()">Alterar senha</button>
+                    <button onclick="verHistorico()">Ver histórico</button>
+                </div>
+            </div>
+
+            <div class="bg-dark p-3">
+                <div class="container-fluid">
+                    <div class="row">
+                        <label for="txt_nome">Nome</label>
+                        <input type="text" placeholder="Digite o nome" id="txt_nome" /><br>
+
+                        <label for="txt_data">Data nascimento</label>
+                        <input type="date" id="txt_data" /><br>
+
+                        <label for="txt_altura">Altura</label>
+                        <input type="number" placeholder="Digite a altura" id="txt_altura" /><br>
+
+                        <label for="txt_peso">Peso</label>
+                        <input type="number" placeholder="Digite o peso" id="txt_peso" /><br>
+
+                        <label for="txt_salario">Salário</label>
+                        <input type="number" placeholder="Digite o salário" id="txt_salario" /><br>
+
+                        <label for="txt_saldo">Saldo em conta</label>
+                        <input type="number" placeholder="Digite o saldo" id="txt_saldo" /><br>
+                        <br>
+                    </div>
+
+                    <button type="button" class="btn btn-warning" onclick="processar()">Chamar api</button>
+                    <br>
+                    <br>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-3">
+        <h2>Resultados</h2>
+        <table class="table table-dark table-hover">
+            <tbody>
+                <tr>
+                    <th id="resultado_nome"></th>
+                </tr>
+                <tr>
+                    <th id="resultado_idade"></th>
+                </tr>
+                <tr>
+                    <th id="resultado_imc"></th>
+                </tr>
+                <tr>
+                    <th id="resultado_classificacao"></th>
+                </tr>
+                <tr>
+                    <th id="resultado_inss"></th>
+                </tr>
+                <tr>
+                    <th id="resultado_aliquota"></th>
+                </tr>
+                <tr>
+                    <th id="resultado_salarioLiquido"></th>
+                </tr>
+                <tr>
+                    <th id="resultado_saldoDolar"></th>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function alterarSenha() {
+        window.location.href = "./alterarsenha.html"
+    }
+
+    function verHistorico() {
+        window.location.href = "./historico.html"
+    }
+
+    function processar() {
+        var token = window.localStorage.getItem('token');
+        processarDadosPessoa(token);
+    }
+
+    function processarDadosPessoa(token) {
+        var request = {
+            "Nome": $("#txt_nome").val(),
+            "DataNascimento": $("#txt_data").val(),
+            "Altura": parseFloat($("#txt_altura").val()),
+            "Peso": parseFloat($("#txt_peso").val()),
+            "Salario": parseFloat($("#txt_salario").val()),
+            "Saldo": parseFloat($("#txt_saldo").val())
+        }
+
+        $.ajax({
+            url: "http://localhost:33550/Pessoa",
+            type: "POST",
+            data: JSON.stringify(request),
+            contentType: "application/json",
+            dataType: "json",
+            headers: { "Authorization": "Bearer " + token },
+            success: function (resposta) {
+                $("#resultado_nome").text("Nome: " + resposta.nome)
+                $("#resultado_idade").text("Idade: " + resposta.idade + " anos")
+                $("#resultado_imc").text("IMC: " + resposta.imc)
+                $("#resultado_classificacao").text("Classificação IMC: " + resposta.classificacao)
+                $("#resultado_inss").text("Valor INSS: R$ " + resposta.inss)
+                $("#resultado_aliquota").text("Aliquota INSS: " + resposta.aliquota + "%")
+                $("#resultado_salarioLiquido").text("salários Liquido: R$ " + resposta.salarioLiquido)
+                $("#resultado_saldoDolar").text("Saldo em Dolar: $ " + resposta.saldoDolar)
+            },
+            error: function (request, message, error) {
+                alert("Não conseguimos se comunicar com back")
+            }
+        })
+    }
+</script>

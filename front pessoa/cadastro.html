@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="./style.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <title>Cadastro</title>
+    <link rel="shortcut icon" href="imagens/dados.ico" type="image/x-icon">
+
+</head>
+
+<body>
+    <h2>Cadastro</h2>
+
+    <label for="txt_nome">Nome</label>
+    <input type="text" placeholder="Digite o nome" id="txt_nome" />
+
+    <label for="txt_usuario">Usuário</label>
+    <input type="text" placeholder="Digite o usuário" id="txt_usuario" />
+
+    <label for="txt_senha">Senha</label>
+    <input type="password" placeholder="Digite a senha" id="txt_senha" /><br><br>
+
+    <label for="txt_senha">Confime a senha</label>
+    <input type="password" placeholder="Digite a senha" id="txt_senha_confirma" /><br><br>
+
+    <label for="txt_email">Email</label>
+    <input type="text" placeholder="Digite o email do usuário" id="txt_email" />
+
+    <button onclick="cadastrar()">Cadastrar</button>
+
+</body>
+
+</html>
+
+<script>
+    function cadastrar() {
+        if ($("#txt_senha").val() != $("#txt_senha_confirma").val()) {
+            alert('As senhas não conferem.');
+            return;
+        }
+
+        var requestUsuario = {
+            "Nome": $("#txt_nome").val(),
+            "Usuario": $("#txt_usuario").val(),
+            "Senha": $("#txt_senha").val(),
+            "Email":$("#txt_email").val()
+        }
+
+        $.ajax({
+            url: "http://localhost:33550/Usuario",
+            type: "POST",
+            data: JSON.stringify(requestUsuario),
+            contentType: "application/json",
+            dataType: "json",
+            success: function (response) {
+                window.location.href = './login.html';
+            },
+            error: function (request, message, error) {
+                alert("Erro ao criar usuário")
+            }
+        })
+    }
+</script>

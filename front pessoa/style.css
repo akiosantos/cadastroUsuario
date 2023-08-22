@@ -1,0 +1,91 @@
+body {
+    width: 700px;
+    margin: auto;
+}
+
+input {
+    width: 100%;
+    border: 0;
+    border-bottom: 1px solid gray;
+    font-size: 20px;
+    padding: 7px 0;
+    background: transparent;
+    margin-top: 12px;
+    margin-bottom: 12;
+}
+
+label {
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+button {
+    background-color: blue;
+    border-radius: 6px;
+    border-width: 0;
+    color: white;
+    cursor: pointer;
+    height: 44px;
+    margin: 12px 0 0;
+    padding: 0 25px;
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border: 1px solid gray;
+}
+
+th, td {
+    padding: 10px;
+}
+
+.table-row {
+    background-color: white;
+    box-shadow: 0px 0px 9px 9px rgb(0, 0, 0, 0.1);
+}
+
+form onsubmit {
+    border: 0;
+    border-bottom: 1px solid rgb(234, 25, 25);
+    font-size: 20px;
+    padding: 7px 0;
+    background: transparent;
+    margin-top: 12px;
+    margin-bottom: 12;
+}
+
+
+
+
+
+
+
+/* abaixo descondiderar  */
+
+.inicial {
+    display: flex; /* Define um layout flexível */
+    align-items: center; /* Centraliza os itens verticalmente */
+  }
+
+h2 {
+    margin-right: 10px; /* Adiciona um espaçamento à direita */
+  }
+
+.form-delete {
+    display: flex;
+    align-items: center;
+}
+
+.input-delete {
+    margin-right: 10px; /* Adiciona um espaçamento à direita */
+  }
+
+.botao-delete {
+    margin-left: 10px; /* Adiciona um espaçamento à esquerda */
+  }
+
+
+
+
+

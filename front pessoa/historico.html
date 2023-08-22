@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+
+    <link rel="stylesheet" href="./style.css">
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <title>Histórico</title>
+    <link rel="shortcut icon" href="imagens/dados.ico" type="image/x-icon">
+</head>
+
+<body>
+
+    <h2>Histórico de cálculos de pessoas</h2>
+
+    <!-- 
+        <form onsubmit="excluirPessoa" class="form-delete">
+            <input type="text" placeholder="Id a ser deletado" id="id-pessoa" name="id-pessoa" class="input-delete" />
+            <button type="submit" class="botao-delete">Delete</button>
+        </form> 
+    </div> -->
+
+    <table id="table_pessoas">
+        <tr>
+            <th>Id</th>
+            <th>Nome</th>
+            <th>Ações</th>
+        </tr>
+    </table>
+</body>
+
+</html>
+
+<script>
+    $(document).ready(function () {
+        var token = window.localStorage.getItem("token");
+        preencherHistorico(token);
+    });
+
+    function preencherHistorico(token) {
+        $("#table_pessoas").not(':first').remove();
+        var html = '';
+
+        $.ajax({
+            url: "http://localhost:33550/Pessoa",
+            type: "GET",
+            contentType: "application/json",
+            dataType: "json",
+            headers: { 'Authorization': 'Bearer ' + token },
+            success: function (response) {
+                for (var i = 0; i < response.length; i++) {
+                    html += '<tr class="table-row">' +
+                        '<td>' + response[i].id + '</td>' +
+                        '<td>' + response[i].nome + '</td>' +
+                        '<td><button onClick="verDetalhes(' + response[i].id + ')">Ver detalhes</button></td>' +
+                        '<td><button onClick="editarPessoa(' + response[i].id + ')">Editar</button>' +
+                        '<td><button onClick="excluirPessoa(' + response[i].id + ')">Excluir</button>' +
+                        '</td>' +
+                        '</tr>';
+                }
+
+                $("#table_pessoas tr").first().after(html);
+            },
+            error: function (request, message, error) {
+                alert("Erro ao obter histórico")
+            }
+        })
+
+    }
+
+    function verDetalhes(id) {
+        window.location.href = "./detalhes.html?id=" + id
+    }
+
+    function editarPessoa(id) {
+        window.location.href = "./editarpessoa.html?id=" + id
+    }
+
+
+    function excluirPessoa(id) {
+        if (confirm("Você tem certeza que deseja excluir o registro ID: " + id + "?") == true) {
+        var token = window.localStorage.getItem("token");
+
+            $.ajax({
+                url: "http://localhost:33550/Pessoa/" + id,
+                type: "DELETE",
+                contentType: "application/json",
+                dataType: "json",
+                headers: { 'Authorization': 'Bearer ' + token },
+                success: function (response) {
+                    alert("Pessoa excluída com sucesso!");
+                    location.reload();
+                    preencherHistorico(token);
+                },
+                error: function (request, message, error) {
+                    alert("Erro ao excluir pessoa");
+                }
+            });
+
+        }
+    }
+
+</script>
