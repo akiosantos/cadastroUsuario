@@ -1,0 +1,13 @@
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Application\bin\Debug\netcoreapp3.1\WebAPIPessoa.Application.deps.json
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Application\bin\Debug\netcoreapp3.1\WebAPIPessoa.Application.dll
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Application\bin\Debug\netcoreapp3.1\WebAPIPessoa.Application.pdb
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Application\obj\Debug\netcoreapp3.1\WebAPIPessoa.Application.csproj.AssemblyReference.cache
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Application\obj\Debug\netcoreapp3.1\WebAPIPessoa.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Application\obj\Debug\netcoreapp3.1\WebAPIPessoa.Application.AssemblyInfoInputs.cache
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Application\obj\Debug\netcoreapp3.1\WebAPIPessoa.Application.AssemblyInfo.cs
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Application\obj\Debug\netcoreapp3.1\WebAPIPessoa.Application.csproj.CoreCompileInputs.cache
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Application\obj\Debug\netcoreapp3.1\WebAPIPessoa.Application.dll
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Application\obj\Debug\netcoreapp3.1\WebAPIPessoa.Application.pdb
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Application\bin\Debug\netcoreapp3.1\WebAPIPessoa.Repository.dll
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Application\bin\Debug\netcoreapp3.1\WebAPIPessoa.Repository.pdb
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Application\obj\Debug\netcoreapp3.1\WebAPIPessoa.Application.csproj.CopyComplete
