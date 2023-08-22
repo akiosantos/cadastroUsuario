@@ -1,0 +1,25 @@
+services:
+  sqlserver:
+    build: .
+    ports:
+      - "1433:1433"
+
+  rabbitmq:
+    image: "rabbitmq:3-management"
+    container_name: rabbitmq
+    hostname: localhost
+    ports:
+     - "15672:15672"
+     - "5672:5672"  
+    volumes:
+     - C:\Armazenamento\Volumes\Rabbit:/var/lib/rabbitmq/
+    environment:
+      - RABBIMQ_DEFAULT_USER=guest
+      - RABBIMQ_DEFAULT_PASS=guest
+      
+  redis:
+    image: redis
+    command: redis-server
+    ports:
+      - "6379:6379" 
+
