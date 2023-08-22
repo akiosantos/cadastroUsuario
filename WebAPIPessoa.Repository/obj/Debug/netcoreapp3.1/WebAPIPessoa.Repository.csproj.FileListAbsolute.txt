@@ -1,0 +1,10 @@
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Repository\bin\Debug\netcoreapp3.1\WebAPIPessoa.Repository.deps.json
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Repository\bin\Debug\netcoreapp3.1\WebAPIPessoa.Repository.dll
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Repository\bin\Debug\netcoreapp3.1\WebAPIPessoa.Repository.pdb
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Repository\obj\Debug\netcoreapp3.1\WebAPIPessoa.Repository.csproj.AssemblyReference.cache
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Repository\obj\Debug\netcoreapp3.1\WebAPIPessoa.Repository.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Repository\obj\Debug\netcoreapp3.1\WebAPIPessoa.Repository.AssemblyInfoInputs.cache
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Repository\obj\Debug\netcoreapp3.1\WebAPIPessoa.Repository.AssemblyInfo.cs
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Repository\obj\Debug\netcoreapp3.1\WebAPIPessoa.Repository.csproj.CoreCompileInputs.cache
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Repository\obj\Debug\netcoreapp3.1\WebAPIPessoa.Repository.dll
+C:\Users\fa123\OneDrive\Documentos\VarSolutions\C#\WebApi\WebAPIPessoa.Repository\obj\Debug\netcoreapp3.1\WebAPIPessoa.Repository.pdb
